@@ -1,33 +1,5 @@
 package priqueue
 
-import (
-	"fmt"
-	"math/rand"
-	"time"
-)
-
-func main() {
-	notices := make(Notices, 0,10)
-	fmt.Println(notices)
-	for len(notices) < 30 {
-		d := rand.Intn(1000-100)+100
-		notice := &Notice{
-			Weight:			d,
-			PhoneNumber:	13000000000,
-			Message:		"我是通知消息",
-		}
-		fmt.Printf("add %d\n", d)
-		notices.Push(notice)
-	}
-	
-	time.Sleep(5 * time.Second)
-	for len(notices) > 0 {
-		n := notices.Pop()
-		ne := n.(*Notice)
-		fmt.Printf("Pop %d\n", ne.Weight)
-	}
-}
-
 type Notice struct {
 	Weight		int			// 值大者，优先发送
 	index		int
