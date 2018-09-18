@@ -18,7 +18,7 @@ func (q *Notices) Push(n interface{}) {
 		copy(tq, *q)
 		*q = tq
 	}
-	*q = (*q)[0 : length+1] // aa
+	*q = (*q)[0 : length+1]
 	ne := n.(*Notice)
 	ne.index = length
 	(*q)[length] = ne
